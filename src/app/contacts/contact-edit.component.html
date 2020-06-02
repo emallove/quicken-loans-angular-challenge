@@ -1,0 +1,177 @@
+<div class="card">
+  <div class="card-header">
+    {{pageTitle}}
+  </div>
+
+  <div class="card-body">
+    <form novalidate
+          (ngSubmit)="saveContact()"
+          [formGroup]="contactForm">
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="contactNameId">First Name</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="contactNameId"
+                 type="text"
+                 placeholder="First Name (required)"
+                 formControlName="firstName"
+                 [ngClass]="{'is-invalid': displayMessage.firstName }" />
+          <span class="invalid-feedback">
+            {{displayMessage.firstName}}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="contactCodeId">Last Name</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="contactCodeId"
+                 type="text"
+                 placeholder="Last Name (required)"
+                 formControlName="lastName"
+                 [ngClass]="{'is-invalid': displayMessage.lastName}" />
+          <span class="invalid-feedback">
+            {{displayMessage.lastName}}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="companyId">Company</label>
+
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="companyId"
+                 type="text"
+                 placeholder="Company name"
+                 formControlName="company"
+                 [ngClass]="{'is-invalid': displayMessage.company}" />
+          <span class="invalid-feedback">
+            {{displayMessage.company}}
+          </span>
+        </div>
+      </div>
+
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="emailId">Email</label>
+
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="emailId"
+                 type="text"
+                 placeholder="Email, e.g., abc@def.net"
+                 formControlName="email"
+                 [ngClass]="{'is-invalid': displayMessage.email}" />
+          <span class="invalid-feedback">
+            {{displayMessage.email}}
+          </span>
+        </div>
+      </div>
+
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="phoneId">Phone</label>
+
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="phoneId"
+                 type="text"
+                 placeholder="Phone, e.g., (617) 867-5309"
+                 formControlName="phone"
+                 [ngClass]="{'is-invalid': displayMessage.phone}" />
+          <span class="invalid-feedback">
+            {{displayMessage.phone}}
+          </span>
+        </div>
+      </div>
+
+      <!--
+      <div formArrayName="tags">
+        <div class="form-group row mb-2"
+             *ngFor="let tag of tags.controls; let i=index">
+          <label class="col-md-2 col-form-label"
+                 [attr.for]="i">Tag</label>
+
+          <div class="col-md-8">
+            <input class="form-control"
+                   [id]="i"
+                   type="text"
+                   placeholder="Tag"
+                   [formControlName]="i" />
+          </div>
+          <button class="col-md-1 btn btn-outline-warning btn-sm"
+                  type="button"
+                  title="Delete this search tag"
+                  (click)="deleteTag(i)">Delete Tag
+          </button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-1 mb-2">
+          <button class="btn btn-outline-secondary btn-sm"
+                  type="button"
+                  title="Add a search tag"
+                  (click)="addTag()">Add Tag
+          </button>
+        </div>
+      </div>
+      -->
+      
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="descriptionId">Address</label>
+
+        <div class="col-md-8">
+          <textarea class="form-control"
+                    id="descriptionId"
+                    placeholder="Address"
+                    rows=3
+                    formControlName="address"
+                    [ngClass]="{'is-invalid': displayMessage.address}"></textarea>
+          <span class="invalid-feedback">
+            {{ displayMessage.address}}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <div class="offset-md-2 col-md-4">
+          <button class="btn btn-primary mr-3"
+                  style="width:80px;"
+                  type="submit"
+                  [title]="contactForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
+                  [disabled]="!contactForm.valid">
+            Save
+          </button>
+          <button class="btn btn-outline-secondary mr-3"
+                  style="width:80px;"
+                  type="button"
+                  title="Cancel your edits"
+                  [routerLink]="['/contacts']">
+            Cancel
+          </button>
+          <button class="btn btn-outline-warning"
+                  style="width:80px"
+                  type="button"
+                  title="Delete this contact"
+                  (click)="deleteContact()">
+            Delete
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="alert alert-danger"
+       *ngIf="errorMessage">{{errorMessage}}
+  </div>
+</div>
