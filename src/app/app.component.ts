@@ -24,5 +24,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  pageTitle = 'Ethan's Contact Management';
+  pageTitle = 'Ethan\'s Contact Management';
 }
