@@ -11,46 +11,31 @@
 
       <div class="col-md-8">
         <div class="row">
-          <div class="col-md-3">Name:</div>
-          <div class="col-md-6">{{contact.contactName}}</div>
+          <div class="col-md-3">First Name:</div>
+          <div class="col-md-6">{{contact.firstName}}</div>
         </div>
         <div class="row">
-          <div class="col-md-3">Code:</div>
-          <div class="col-md-6">{{contact.contactCode}}</div>
+          <div class="col-md-3">Last Name:</div>
+          <div class="col-md-6">{{contact.lastName}}</div>
         </div>
         <div class="row">
-          <div class="col-md-3">Description:</div>
-          <div class="col-md-6">{{contact.description}}</div>
+          <div class="col-md-3">Company:</div>
+          <div class="col-md-6">{{contact.company}}</div>
         </div>
         <div class="row">
-          <div class="col-md-3">Availability:</div>
-          <div class="col-md-6">{{contact.releaseDate}}</div>
+          <div class="col-md-3">Email:</div>
+          <div class="col-md-6">{{contact.email}}</div>
         </div>
         <div class="row">
-          <div class="col-md-3">Price:</div>
-          <div class="col-md-6">{{contact.price|currency:"USD":"symbol"}}</div>
+          <div class="col-md-3">Phone:</div>
+          <div class="col-md-6">{{contact.phone}}</div>
         </div>
         <div class="row">
-          <div class="col-md-3">5 Star Rating:</div>
-          <div class="col-md-6">
-            <pm-star [rating]="contact.starRating">
-            </pm-star>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-3">Tags:</div>
-          <div class="col-md-6">{{contact.tags}}</div>
+          <div class="col-md-3">Address:</div>
+          <div class="col-md-6">{{contact.address}}</div>
         </div>
       </div>
 
-      <div class="col-md-4"
-           *ngIf="contact.imageUrl">
-        <img class="center-block img-responsive"
-             [style.height.px]="150"
-             [style.margin.px]="2"
-             [src]="contact.imageUrl"
-             [title]="contact.contactName">
-      </div>
     </div>
 
     <div class="row mt-4">
